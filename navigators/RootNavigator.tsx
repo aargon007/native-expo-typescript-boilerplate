@@ -1,14 +1,14 @@
 import * as React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "screens/Home";
 import Profile from "screens/Profile";
 import { NavigationProp } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 export type ScreenNames = ["Home", "Profile"];
 export type RootStackParamList = Record<ScreenNames[number], undefined>;
 export type StackNavigation = NavigationProp<RootStackParamList>;
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
     return (
@@ -17,9 +17,12 @@ const RootNavigator = () => {
             <Stack.Screen
                 name="Home"
                 component={Home}
+                // options={{
+                //     headerTitle: "Homepage",
+                //     headerTitleAlign: "center",
+                // }}
                 options={{
-                    headerTitle: "Homepage",
-                    headerTitleAlign: "center",
+                    headerShown: false
                 }}
             />
 

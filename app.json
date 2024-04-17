@@ -1,32 +1,30 @@
 {
-  "expo": {
-    "name": "native-expo-typescript",
-    "slug": "native-expo-typescript",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "scheme": "my-app",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-			"bundler": "metro",
-			"favicon": "./assets/icon.png"
-		}
-  }
+    "expo": {
+        "name": "native-expo-typescript",
+        "slug": "native-expo-typescript",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "scheme": "my-app",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "dark",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "cover",
+            "backgroundColor": "#000000"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#000000"
+            }
+        },
+        "web": {
+            "bundler": "metro",
+            "favicon": "./assets/icon.png"
+        }
+    }
 }
