@@ -1,7 +1,7 @@
 import * as React from "react";
-import Home from "screens/Home";
-import Profile from "screens/Profile";
-import { NavigationProp } from "@react-navigation/native";
+import Home from "@/screens/Home";
+import Profile from "@/screens/Profile";
+import { type NavigationProp } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 export type ScreenNames = ["Home", "Profile"];

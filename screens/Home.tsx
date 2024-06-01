@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
-import { useThemeScheme } from 'constants/useThemeScheme';
-import { StackNavigation } from 'navigators/RootNavigator';
-import React from 'react';
+import { useThemeScheme } from '@/constants/useThemeScheme';
+import { type StackNavigation } from '@/navigators/RootNavigator';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Path, Svg } from 'react-native-svg';
 
