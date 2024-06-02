@@ -4,6 +4,10 @@ import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import RootNavigator from '@/navigators/RootNavigator';
 import { store } from '@/redux/store';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import globalStyles from './styles/globalStyles';
+
+EStyleSheet.build(globalStyles);
 
 const CustomDarkTheme = {
   ...DarkTheme,
