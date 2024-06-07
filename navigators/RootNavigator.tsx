@@ -17,10 +17,6 @@ const RootNavigator = () => {
             <Stack.Screen
                 name="Home"
                 component={Home}
-                // options={{
-                //     headerTitle: "Homepage",
-                //     headerTitleAlign: "center",
-                // }}
                 options={{
                     headerShown: false
                 }}

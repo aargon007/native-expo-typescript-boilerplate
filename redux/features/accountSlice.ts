@@ -1,10 +1,11 @@
-import {type  PayloadAction, createSlice } from "@reduxjs/toolkit";
+import type { TUser } from "@/types/user";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type TState = {
-	language : "en" | "fr"
+	user: null | TUser
 }
-const initialState:TState = {
-	language: "en",
+const initialState: TState = {
+	user: null
 };
 
 //carts slice
@@ -12,13 +13,15 @@ export const accountSlice = createSlice({
 	name: "account",
 	initialState,
 	reducers: {
-		setLanguage: (state, action: PayloadAction<"en" | "fr">) => {
-			state.language = action.payload;
+		setUser: (state, action: PayloadAction<null | TUser>) => {
+			state.user = action.payload;
 		},
 	},
 });
 
 // Action creators are automatically generated for each case reducer function
-export const { setLanguage } = accountSlice.actions;
+export const {
+	setUser
+} = accountSlice.actions;
 
 export default accountSlice.reducer;

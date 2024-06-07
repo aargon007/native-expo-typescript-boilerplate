@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import RootNavigator from '@/navigators/RootNavigator';
 import { store } from '@/redux/store';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import globalStyles from './styles/globalStyles';
+import styleGuide from './styles/styleGuide';
 
-EStyleSheet.build(globalStyles);
+EStyleSheet.build(styleGuide);
 
 const CustomDarkTheme = {
   ...DarkTheme,
