@@ -9,7 +9,10 @@
     "web": "expo start --web",
     "web:build": "expo export -p web",
     "web:preview": "npx serve dist",
-    "ts:check": "tsc"
+    "ts:check": "tsc",
+    "lint": "eslint . --fix",
+    "format": "prettier --write \"*/**/*.{js,jsx,ts,tsx}\"",
+    "build:ios": "eas build -p ios --profile production"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",

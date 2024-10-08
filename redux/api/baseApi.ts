@@ -6,12 +6,11 @@ import {
     createApi,
     fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react';
-import { type RootState } from '../store';
-import { logoutUser, setToken } from 'redux/features/accountSlice';
-import { Mutex } from 'async-mutex'
+import { Mutex } from 'async-mutex';
+import type { RootState } from '../store';
 
 // create a new mutex
-const mutex = new Mutex()
+const mutex = new Mutex();
 
 const baseQuery = fetchBaseQuery({
     baseUrl: '',
@@ -27,13 +26,9 @@ const baseQuery = fetchBaseQuery({
     },
 });
 
-const baseQueryWithRefreshToken: BaseQueryFn<
-    FetchArgs,
-    BaseQueryApi,
-    DefinitionType
-> = async (args, api, extraOptions): Promise<any> => {
+const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async (args, api, extraOptions): Promise<any> => {
     // wait until the mutex is available without locking it
-    await mutex.waitForUnlock()
+    await mutex.waitForUnlock();
 
     let result: any = await baseQuery(args, api, extraOptions);
 
@@ -49,13 +44,15 @@ const baseQueryWithRefreshToken: BaseQueryFn<
             try {
                 const refreshResult: any = await baseQuery(
                     {
-                        url: "/auth/token/refresh",
+                        url: '/auth/token/refresh',
                         method: 'POST',
                         body: {
                             refresh_token: refreshToken,
                         },
                     },
-                    api, extraOptions);
+                    api,
+                    extraOptions
+                );
 
                 // console.log(refreshResult, "ee");
 
@@ -76,9 +73,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
                 if (refreshResult?.data?.access_token) {
                     // const user = (api.getState() as RootState).auth.user;
 
-                    api.dispatch(
-                        setToken(refreshResult?.data?.access_token)
-                    );
+                    api.dispatch(setToken(refreshResult?.data?.access_token));
 
                     result = await baseQuery(args, api, extraOptions);
                 } else {
@@ -89,12 +84,12 @@ const baseQueryWithRefreshToken: BaseQueryFn<
                 api.dispatch(logoutUser());
             } finally {
                 // release must be called once the mutex should be released again.
-                release()
+                release();
             }
         } else {
             // wait until the mutex is available without locking it
-            await mutex.waitForUnlock()
-            result = await baseQuery(args, api, extraOptions)
+            await mutex.waitForUnlock();
+            result = await baseQuery(args, api, extraOptions);
         }
     }
     return result;
@@ -103,6 +98,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: baseQueryWithRefreshToken,
-    tagTypes: ["user"],
-    endpoints: () => ({})
+    tagTypes: ['user'],
+    endpoints: () => ({}),
 });

@@ -1,15 +1,15 @@
-import EStyleSheet from "react-native-extended-stylesheet";
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export const globalStyles = EStyleSheet.create({
     //pos home
     posContainer: {
         flex: 1,
-        backgroundColor: "$black",
-        color: "$white",
-        flexDirection: "row",
+        backgroundColor: '$black',
+        color: '$white',
+        flexDirection: 'row',
     },
     leftNav: {
-        height: "$full",
+        height: '$full',
         '@media (max-width: 2160px)': {
             width: 83,
         },
@@ -18,29 +18,27 @@ export const globalStyles = EStyleSheet.create({
         },
     },
     leftNavMenuBtn: {
-        backgroundColor: "$secondary",
+        backgroundColor: '$secondary',
         height: 70,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
         marginBottom: 5,
-        borderBottomWidth: "$border_sm",
-        borderBottomColor: "$border_primary"
+        borderBottomWidth: '$border_sm',
+        borderBottomColor: '$border_primary',
     },
     navItem: {
         height: 70,
-        justifyContent: "center",
-        alignItems: "center",
-        borderBottomWidth: "$border_sm",
-        borderBottomColor: "$border_primary"
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomWidth: '$border_sm',
+        borderBottomColor: '$border_primary',
     },
     navText: {
-        color: "#A3A3A8",
-        fontSize: "$text_xs",
-        fontWeight: "$font_semibold",
+        color: '#A3A3A8',
+        fontSize: '$text_xs',
+        fontWeight: '$font_semibold',
         lineHeight: 12,
-        marginTop: 9
+        marginTop: 9,
     },
-    itemsContainer: {
-
-    }
-})
+    itemsContainer: {},
+});

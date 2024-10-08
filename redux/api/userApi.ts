@@ -1,31 +1,28 @@
-import { baseApi } from "./baseApi";
+import { baseApi } from './baseApi';
 
 const userApi = baseApi.injectEndpoints({
     overrideExisting: true,
-    endpoints: (builder) => ({
+    endpoints: builder => ({
         // save search
         saveSearch: builder.mutation({
-            query: (data) => ({
-                method: "POST",
-                url: "/save",
-                body: data
+            query: data => ({
+                method: 'POST',
+                url: '/save',
+                body: data,
             }),
-            invalidatesTags: ["user"],
+            invalidatesTags: ['user'],
         }),
         // get user
         getUser: builder.query({
             query: () => ({
-                method: "GET",
-                url: "/auth"
+                method: 'GET',
+                url: '/auth',
             }),
-            providesTags: ["user"]
+            providesTags: ['user'],
         }),
     }),
 });
 
-export const {
-    useGetUserQuery,
-    useSaveSearchMutation
-} = userApi;
+export const { useGetUserQuery, useSaveSearchMutation } = userApi;
 
 export default userApi;

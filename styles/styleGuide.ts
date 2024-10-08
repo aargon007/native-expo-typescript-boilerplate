@@ -2,14 +2,14 @@
 const colors = {
     $primary: '#111111',
     $secondary: '#181818',
-    $tertiary: "#232325",
-    $quarternary: "#212124",
+    $tertiary: '#232325',
+    $quarternary: '#212124',
     $white: '#FFFFFF',
-    $dark: "#090909",
+    $dark: '#090909',
     $black: '#000000',
-    $blue: "#0879CC",
-    $red: "#A93E3E",
-    $darkgray: "#373737",
+    $blue: '#0879CC',
+    $red: '#A93E3E',
+    $darkgray: '#373737',
     $gray: '#A3A3A8',
 };
 
@@ -25,12 +25,12 @@ const typography = {
 };
 
 const spacing = {
-    "$p-2": 8,
-    "$p-4": 16,
-    "$p-6": 24,
-    "$m-2": 8,
-    "$m-4": 16,
-    "$m-6": 24,
+    '$p-2': 8,
+    '$p-4': 16,
+    '$p-6': 24,
+    '$m-2': 8,
+    '$m-4': 16,
+    '$m-6': 24,
 };
 
 const dimensions = {
@@ -46,12 +46,12 @@ const dimensions = {
 // };
 
 const borders = {
-    $border_sm: .5,
+    $border_sm: 0.5,
     $border: 1,
     $border_md: 2,
     $border_lg: 7.5,
-    $border_primary: "#232325",
-    $border_secondary: "",
+    $border_primary: '#232325',
+    $border_secondary: '',
 };
 
 // Export the styles
