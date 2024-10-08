@@ -14,9 +14,7 @@ export default function Header() {
                     Discover {text}
                 </Text>
             </View>
-            <Button iconButton>
-                A
-            </Button>
+            <Button iconButton>A</Button>
         </View>
     );
 }

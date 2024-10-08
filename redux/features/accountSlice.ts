@@ -18,7 +18,7 @@ export const accountSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action) => {
-            state.user = action.payload
+            state.user = action.payload;
         },
         setToken: (state, action) => {
             state.access_token = action.payload;
@@ -26,20 +26,15 @@ export const accountSlice = createSlice({
         setRefreshToken: (state, action) => {
             state.refresh_token = action.payload;
         },
-        logoutUser: (state) => {
+        logoutUser: state => {
             state.user = null;
-            state.access_token = null
-            state.refresh_token = null
-        }
+            state.access_token = null;
+            state.refresh_token = null;
+        },
     },
 });
 
 // Action creators are automatically generated for each case reducer function
-export const {
-    setUser,
-    setToken,
-    setRefreshToken,
-    logoutUser
-} = accountSlice.actions;
+export const { setUser, setToken, setRefreshToken, logoutUser } = accountSlice.actions;
 
 export default accountSlice.reducer;

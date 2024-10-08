@@ -31,7 +31,7 @@ export default function RangeSlider({ min, max, step, onValueChange }: RangeSlid
         .onBegin(() => {
             context.value = position.value;
         })
-        .onUpdate((e) => {
+        .onUpdate(e => {
             if (context.value + e.translationX < 0) {
                 position.value = 0;
             } else if (context.value + e.translationX > position2.value) {
@@ -53,7 +53,7 @@ export default function RangeSlider({ min, max, step, onValueChange }: RangeSlid
         .onBegin(() => {
             context2.value = position2.value;
         })
-        .onUpdate((e) => {
+        .onUpdate(e => {
             if (context2.value + e.translationX > sliderWidth) {
                 position2.value = sliderWidth;
             } else if (context2.value + e.translationX < position.value) {
@@ -79,7 +79,7 @@ export default function RangeSlider({ min, max, step, onValueChange }: RangeSlid
     return (
         <View style={[{ flex: 1, justifyContent: 'center' }]}>
             <View
-                onLayout={(e) => setLayout(e.nativeEvent.layout)}
+                onLayout={e => setLayout(e.nativeEvent.layout)}
                 style={[{ height: 16, backgroundColor: card, borderRadius: 8, borderWidth: 1, borderColor }]}
             />
             <Animated.View style={[sliderStyle, { height: 16, backgroundColor: primary, borderRadius: 8, position: 'absolute' }]} />

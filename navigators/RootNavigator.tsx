@@ -14,9 +14,8 @@ const RootNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                autoHideHomeIndicator: true
-            }}
-        >
+                autoHideHomeIndicator: true,
+            }}>
             <Stack.Screen
                 name="Home"
                 component={Home}

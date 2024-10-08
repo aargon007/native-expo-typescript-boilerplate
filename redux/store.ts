@@ -4,12 +4,13 @@ import onboardingReducer from './features/onBoardingSlice';
 import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { baseApi } from './api/baseApi';
 
 const accountPersistConfig = {
     key: 'account',
-    storage: AsyncStorage
+    storage: AsyncStorage,
 };
-const accountPersistReducer = persistReducer(accountPersistConfig, accountReducer)
+const accountPersistReducer = persistReducer(accountPersistConfig, accountReducer);
 
 export const store = configureStore({
     reducer: {
@@ -17,7 +18,15 @@ export const store = configureStore({
         account: accountPersistReducer,
         // onboarding
         onboarding: onboardingReducer,
+        // api
+        [baseApi.reducerPath]: baseApi.reducer,
     },
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }).concat(baseApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
