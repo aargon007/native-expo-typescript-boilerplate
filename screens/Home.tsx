@@ -1,8 +1,9 @@
 import { Text, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { useNavigation } from '@react-navigation/native';
-import { useThemeScheme } from '@/constants/useThemeScheme';
+import { useThemeScheme } from '@/hooks/useThemeScheme';
 import { type StackNavigation } from '@/navigators/RootNavigator';
+import Header from '@/component/home/Header';
 
 const Home = () => {
     const { navigate } = useNavigation<StackNavigation>();
@@ -10,7 +11,7 @@ const Home = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Hello, World!</Text>
+            <Header />
         </View>
     );
 };

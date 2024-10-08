@@ -8,6 +8,7 @@ import {
 } from '@reduxjs/toolkit/query/react';
 import { Mutex } from 'async-mutex';
 import type { RootState } from '../store';
+import { logoutUser, setToken } from '../features/accountSlice';
 
 // create a new mutex
 const mutex = new Mutex();
@@ -53,22 +54,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
                     api,
                     extraOptions
                 );
-
-                // console.log(refreshResult, "ee");
-
-                // const res = await fetch('http://13.58.35.37:8000/api/v1/auth/token/refresh', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //         'Authoriztion': `Bearer ${(api.getState() as RootState).account.access_token}`
-                //     },
-                //     body: JSON.stringify({
-                //         refresh_token: refreshToken,
-                //     }),
-                // });
-
-                // const data = await res.json();
-                // console.log(data);
 
                 if (refreshResult?.data?.access_token) {
                     // const user = (api.getState() as RootState).auth.user;
