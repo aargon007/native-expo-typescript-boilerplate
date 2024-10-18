@@ -22,6 +22,7 @@ Created by [Md Muhaiminul](https://www.linkedin.com/in/aargon007).
     ```bash
     npm start
     ```
+
 ## Scripts
 
 - `npm start`: Start the Expo development server.
@@ -31,6 +32,7 @@ Created by [Md Muhaiminul](https://www.linkedin.com/in/aargon007).
 - `npm run web:build`: Export for Web.
 - `npm run web:preview`: Preview the exported web project.
 - `npm run ts:check`: Run TypeScript type checking.
+
 
 ## Packages
 
