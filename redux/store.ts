@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import accountReducer from './features/accountSlice';
 import onboardingReducer from './features/onBoardingSlice';
+import reportReducer from './features/reportSlice';
+import cartReducer from './features/cartSlice'; 
 import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,6 +20,10 @@ export const store = configureStore({
         account: accountPersistReducer,
         // onboarding
         onboarding: onboardingReducer,
+        // report
+        report: reportReducer,
+        // cart
+        cart: cartReducer,
         // api
         [baseApi.reducerPath]: baseApi.reducer,
     },
