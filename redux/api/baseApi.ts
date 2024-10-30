@@ -14,7 +14,7 @@ import { logoutUser, setToken } from '../features/accountSlice';
 const mutex = new Mutex();
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: '',
+    baseUrl: process.env.EXPO_PUBLIC_API_URL,
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).account.access_token;
@@ -33,11 +33,12 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
 
     let result: any = await baseQuery(args, api, extraOptions);
 
-    if (result?.data?.statusCode === 401 || result?.data?.statusCode === 403 || result.meta?.response?.status === 500) {
+    if (result?.data?.statusCode === 401) {
         // console.log(result);
 
-        //* Send Refreshg
+        //* refresh token
         const refreshToken = (api.getState() as RootState).account.refresh_token;
+        
         // checking whether the mutex is locked
         if (!mutex.isLocked()) {
             const release = await mutex.acquire();
@@ -56,8 +57,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
                 );
 
                 if (refreshResult?.data?.access_token) {
-                    // const user = (api.getState() as RootState).auth.user;
-
                     api.dispatch(setToken(refreshResult?.data?.access_token));
 
                     result = await baseQuery(args, api, extraOptions);
