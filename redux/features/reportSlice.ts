@@ -1,33 +1,28 @@
-import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
+import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../store';
 
 // Thunk functions. call in a useeffect
-export const getTransactions = createAsyncThunk(
-    'reportSlice/getTransactions',
-    async (_, { getState }) => {
-        const state = getState() as RootState;
-        const transactions = state.carts.transactions;
-        const user = state.account.user;
-        return { transactions, user };
-    }
-);
+export const getTransactions = createAsyncThunk('reportSlice/getTransactions', async (_, { getState }) => {
+    const state = getState() as RootState;
+    const transactions = state.carts.transactions;
+    const user = state.account.user;
+    return { transactions, user };
+});
 
 type TState = {
-    reports: []
-}
+    reports: [];
+};
 
 const initialState: TState = {
-    reports: []
+    reports: [],
 };
 
 // report slice
 export const reportSlice = createSlice({
-    name: "report",
+    name: 'report',
     initialState,
-    reducers: {
-        
-    },
-    extraReducers: (builder) => {
+    reducers: {},
+    extraReducers: builder => {
         builder.addCase(getTransactions.fulfilled, (state, action) => {
             // state came from getTransactions thunk function
         });
@@ -39,8 +34,6 @@ export const reportSlice = createSlice({
     },
 });
 
-export const {
-   
-} = reportSlice.actions;
+export const {} = reportSlice.actions;
 
 export default reportSlice.reducer;

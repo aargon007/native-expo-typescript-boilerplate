@@ -38,7 +38,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
 
         //* refresh token
         const refreshToken = (api.getState() as RootState).account.refresh_token;
-        
+
         // checking whether the mutex is locked
         if (!mutex.isLocked()) {
             const release = await mutex.acquire();

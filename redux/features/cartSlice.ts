@@ -1,20 +1,20 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import uuid from 'react-native-uuid';
 
 type TCartSliceState = {
     carts: {
-        id: string,
-        name: string,
-        price: number,
-        quantity: number
-    }[],
+        id: string;
+        name: string;
+        price: number;
+        quantity: number;
+    }[];
     transactions: {
-        id: string,
-        name: string,
-        price: number,
-        quantity: number
-    }[],
-}
+        id: string;
+        name: string;
+        price: number;
+        quantity: number;
+    }[];
+};
 
 const initialState: TCartSliceState = {
     carts: [],
@@ -23,16 +23,12 @@ const initialState: TCartSliceState = {
 
 //carts slice
 export const cartSlice = createSlice({
-    name: "cart",
+    name: 'cart',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
 });
 
 // cart reducer functions
-export const {
-
-} = cartSlice.actions;
+export const {} = cartSlice.actions;
 
 export default cartSlice.reducer;

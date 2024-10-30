@@ -34,10 +34,10 @@ const userApi = baseApi.injectEndpoints({
             query: () => {
                 return {
                     url: '/auth',
-                    method: 'GET'
+                    method: 'GET',
                 };
             },
-            providesTags: ['user']
+            providesTags: ['user'],
         }),
 
         // Update User
@@ -46,30 +46,30 @@ const userApi = baseApi.injectEndpoints({
                 return {
                     url: '/auth',
                     method: 'PUT',
-                    body: data
+                    body: data,
                 };
             },
-            invalidatesTags: ['user']
+            invalidatesTags: ['user'],
         }),
 
         // Delete User
         deleteUser: builder.mutation({
-            query: (id) => {
+            query: id => {
                 return {
                     url: `/auth/delete/${id}`,
-                    method: 'DELETE'
+                    method: 'DELETE',
                 };
             },
-            invalidatesTags: ['user']
+            invalidatesTags: ['user'],
         }),
 
         // single item caching
         getSingleItem: builder.query({
             query: ({ id }) => ({
                 url: `/api/items/${id}`,
-                method: 'GET'
+                method: 'GET',
             }),
-            providesTags: (result, error, { id }) => [{ type: 'user', id }]
+            providesTags: (result, error, { id }) => [{ type: 'user', id }],
         }),
 
         // change user password
@@ -78,11 +78,11 @@ const userApi = baseApi.injectEndpoints({
                 return {
                     url: '/user/change-password',
                     method: 'PUT',
-                    body: data
+                    body: data,
                 };
             },
-            invalidatesTags: ['user']
-        })
+            invalidatesTags: ['user'],
+        }),
     }),
 });
 
@@ -93,7 +93,7 @@ export const {
     useUpdateUserMutation,
     useDeleteUserMutation,
     useGetSingleItemQuery,
-    useChangePasswordMutation
+    useChangePasswordMutation,
 } = userApi;
 
 export default userApi;
